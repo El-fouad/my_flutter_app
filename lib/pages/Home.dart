@@ -17,17 +17,41 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         elevation: 0.0,
-        leading: Container(
-          margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              color: Colors.black, borderRadius: BorderRadius.circular(10)),
-        ),
-        actions: <Widget> [
-          Container(
-            margin: const EdgeInsets.all(50),
+        leading: GestureDetector(
+          onTap: () => {},
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 204, 21, 21), borderRadius: BorderRadius.circular(10)
-              ),
+                color: const Color.fromARGB(255, 241, 223, 223),
+                borderRadius: BorderRadius.circular(10)),
+            child: const Text(
+              "<",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900),
+            ),
+          ),
+        ),
+        actions: [
+          GestureDetector(
+            onTap: () => {},
+            child: Container(
+              margin: const EdgeInsets.all(10),
+              width: 30,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 241, 223, 223),
+                  borderRadius: BorderRadius.circular(10)),
+              child: const Text("==",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900)),
+            ),
           ),
         ],
       ),
