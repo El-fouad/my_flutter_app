@@ -9,24 +9,44 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      body: Column(
-        children: [
+      body: Column(children: [
         Container(
-          margin: EdgeInsets.only(top: 40  ,  left: 20 , right: 20),
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
+          margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
                 color: Colors.black.withOpacity(0.11),
                 blurRadius: 40,
-                spreadRadius: 0.0
-              )
-            ]
-          ),
+                spreadRadius: 0.0)
+          ]),
           child: TextField(
             decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white
-            ),
+                filled: true,
+                fillColor: Colors.white,
+                prefixIcon: const Icon(
+                  Icons.search,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  size: 24.0,
+                ),
+                suffixIcon: Container(
+                    width: 100,
+                    child: const IntrinsicHeight(
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 0),
+                            child: Icon(
+                              Icons.filter_list_outlined,
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              size: 24.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
+                contentPadding: const EdgeInsets.all(15),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none)),
           ),
         )
       ]),
