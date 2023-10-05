@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:my_app/wiidgets/NavBar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,49 +9,53 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: NavBar(),
       body: Column(children: [
-        Container(
-          margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-                color: Colors.black.withOpacity(0.11),
-                blurRadius: 40,
-                spreadRadius: 0.0)
-          ]),
-          child: TextField(
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  size: 24.0,
-                ),
-                suffixIcon: Container(
-                    width: 100,
-                    child: const IntrinsicHeight(
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(right: 0),
-                            child: Icon(
-                              Icons.filter_list_outlined,
-                              color: Color.fromARGB(255, 0, 0, 0),
-                              size: 24.0,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                contentPadding: const EdgeInsets.all(15),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide.none)),
-          ),
-        )
+        searchBar()
       ]),
     );
+  }
+
+  Container searchBar() {
+    return Container(
+        margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              color: Colors.black.withOpacity(0.11),
+              blurRadius: 40,
+              spreadRadius: 0.0)
+        ]),
+        child: TextField(
+          decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              prefixIcon: const Icon(
+                Icons.search,
+                color: Color.fromARGB(255, 0, 0, 0),
+                size: 24.0,
+              ),
+              suffixIcon:const SizedBox (
+                  width: 100,
+                  child:  IntrinsicHeight(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(right: 0),
+                          child: Icon(
+                            Icons.filter_list_outlined,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            size: 24.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+              contentPadding: const EdgeInsets.all(15),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none)),
+        ),
+      );
   }
 
   AppBar appBar() {
