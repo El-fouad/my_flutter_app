@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
             child: const Column(
               children:<Widget> [
                 Row( 
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text("data"),
                     Text("header"),
