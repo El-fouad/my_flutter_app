@@ -1,17 +1,19 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:my_app/constants/contants.dart';
+import 'package:my_app/model/Products.dart';
+import 'package:my_app/pages/details/details_screen.dart';
+import 'package:my_app/wiidgets/categories.dart';
+import 'package:my_app/wiidgets/items_card.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(KDefaultPadding),
           child: Text(
             "Women",
@@ -21,61 +23,25 @@ class Body extends StatelessWidget {
             ),
           ),
         ),
-        Categories()
+        const Categories(),
+        Expanded(
+          child: Padding(
+              padding: const EdgeInsets.all(KDefaultPadding),
+              child: GridView.builder(
+                  itemCount: products.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: KDefaultPadding,
+                      childAspectRatio: 0.65),
+                  itemBuilder: (context, index) => ItemCard(
+                      product: products[index],
+                      press: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  DetailsSreen(product: products[index])))))),
+        )
       ],
-    );
-  }
-}
-
-class Categories extends StatefulWidget {
-  const Categories({super.key});
-
-  @override
-  State<Categories> createState() => _CatgforiesState();
-}
-
-class _CatgforiesState extends State<Categories> {
-  List<String> Categories = ["Hand bag ", "Jewellery", "Footwear", "Dresses"];
-  int selectedIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 25,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: Categories.length,
-        itemBuilder: (context, index) => buildCategory(index),
-      ),
-    );
-  }
-
-  Widget buildCategory(int index) {
-    return GestureDetector(
-      onTap: () => {
-        setState((){
-          selectedIndex = index;
-        })
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: KDefaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-          Text(
-            Categories[index],
-            style:
-              TextStyle(
-                fontWeight: FontWeight.bold,
-                color: selectedIndex == index ? KTextColor : KTexyLightColor
-                ),
-          ),
-          Container(
-            height: 2,
-            width: 30,
-            color: selectedIndex == index? Colors.black:Colors.transparent,
-          )
-        ]),
-      ),
     );
   }
 }
