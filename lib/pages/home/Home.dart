@@ -10,35 +10,36 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: buildAppBar(),
-    body: const Body(),
-    
-  );}
+      appBar: buildAppBar(),
+      body: const Body(),
+    );
+  }
 
   AppBar buildAppBar() {
     return AppBar(
-    backgroundColor: Colors.white,
-    elevation: 0,
-    leading: IconButton(
-      icon: const Icon(
-        color: Colors.black38,
-        Icons.arrow_back,
+      backgroundColor: Colors.white,
+      elevation: 0,
+      leading: IconButton(
+        icon: const Icon(
+          color: Colors.black38,
+          Icons.arrow_back,
+        ),
+        onPressed: () {},
       ),
-      onPressed: () {},
-    ),
-    actions: <Widget> [
-      IconButton(onPressed: () {},
-       icon: const Icon(
-        color:Colors.black38,
-        Icons.search
-       )),
-      IconButton(onPressed: () {},
-       icon: const Icon(
-        color:Colors.black38,
-        Icons.add_shopping_cart
-       )),
-       const SizedBox(width: KDefaultPadding /2,)
-    ],
-  );
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(
+            color: Colors.black38,
+            Icons.search),
+          onPressed: () => {const Text("searching...")},
+        ),
+        IconButton(
+            onPressed: () {},
+            icon: const Icon(color: Colors.black38, Icons.add_shopping_cart)),
+        const SizedBox(
+          width: KDefaultPadding / 2,
+        )
+      ],
+    );
   }
 }
