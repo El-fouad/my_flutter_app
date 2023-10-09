@@ -1,5 +1,5 @@
-// ignore: file_names
-import 'package:flutter/material.dart';
+// ignore_for_file: file_names
+import 'package:flutter/material.dart' show Alignment, AppBar, BorderRadius, BoxDecoration, BuildContext, Color, Colors, Container, EdgeInsets, FontWeight, GestureDetector, StatelessWidget, Text, TextAlign, TextStyle, Widget;
 class NavBar extends StatelessWidget {
   const NavBar({
     super.key,
