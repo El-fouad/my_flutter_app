@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/constants/contants.dart';
 import 'package:my_app/model/Products.dart';
@@ -13,7 +15,9 @@ class DetailsSreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: product.color,
       appBar: buildAppBar(context),
-      body: Body(product: product,),
+      body: Body(
+        product: product,
+      ),
     );
   }
 
@@ -27,7 +31,9 @@ class DetailsSreen extends StatelessWidget {
       ),
       actions: [
         IconButton(onPressed: () => {}, icon: const Icon(Icons.search)),
-        IconButton(onPressed: () => {}, icon: const Icon(Icons.add_shopping_cart)),
+        IconButton(
+            onPressed: () => {showSearch(context: context, delegate:SearchBar())},
+            icon: const Icon(Icons.add_shopping_cart)),
         const SizedBox(
           width: KDefaultPadding / 2,
         )
