@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:my_app/model/Products.dart';
 
@@ -6,7 +5,7 @@ import '../constants/contants.dart';
 
 class ItemCard extends StatelessWidget {
   final Product product;
-  final VoidCallback  press;
+  final VoidCallback press;
   const ItemCard({
     super.key,
     required this.product,
@@ -24,7 +23,8 @@ class ItemCard extends StatelessWidget {
             decoration: BoxDecoration(
                 color: product.color,
                 borderRadius: BorderRadius.circular(KDefaultPadding)),
-            child: Image.asset(product.image),
+            child:
+                Hero(tag: "${product.id}", child: Image.asset(product.image)),
           ),
         ),
         Text(product.title),
