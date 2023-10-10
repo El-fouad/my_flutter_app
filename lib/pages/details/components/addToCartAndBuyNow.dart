@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'package:my_app/constants/contants.dart';
@@ -23,7 +24,7 @@ class addToCartAndBuyNow extends StatelessWidget {
           GestureDetector(
             onTap: () {},
             child: Container(
-              margin: EdgeInsets.only(right: KDefaultPadding),
+              margin: const EdgeInsets.only(right: KDefaultPadding),
               height: 50,
               width: 58,
               decoration: BoxDecoration(
