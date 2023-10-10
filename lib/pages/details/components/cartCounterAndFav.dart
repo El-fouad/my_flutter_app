@@ -1,7 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:my_app/constants/contants.dart';
-
-
 
 class CartCounter extends StatefulWidget {
   const CartCounter({super.key});
@@ -19,25 +19,30 @@ class _CartCounterState extends State<CartCounter> {
       children: [
         Row(
           children: [
-            buildOutLineButon(press: () {
-              numItems>1?
-              setState(() {
-                numItems--;
-              }):null;
-            }, icon: Icons.remove),
+            buildOutLineButon(
+                press: () {
+                  numItems > 1
+                      ? setState(() {
+                          numItems--;
+                        })
+                      : null;
+                },
+                icon: Icons.remove),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: KDefaultPadding / 2),
               child: Text(
-                numItems.toString().padLeft(2,"0"),
+                numItems.toString().padLeft(2, "0"),
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
-            buildOutLineButon(press: (){
-              setState(() {
-                numItems++;
-              });
-            }, icon: Icons.add),
+            buildOutLineButon(
+                press: () {
+                  setState(() {
+                    numItems++;
+                  });
+                },
+                icon: Icons.add),
           ],
         ),
         Container(
