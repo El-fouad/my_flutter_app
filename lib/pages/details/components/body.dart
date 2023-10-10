@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants/contants.dart';
 import 'package:my_app/model/Products.dart';
+import 'package:my_app/pages/details/components/addToCartAndBuyNow.dart';
+import 'package:my_app/pages/details/components/cartCounterAndFav.dart';
 import 'package:my_app/pages/details/components/colorAndSize.dart';
 import 'package:my_app/pages/details/components/description.dart';
 import 'package:my_app/pages/details/components/producTitleWithImg.dart';
@@ -32,30 +34,14 @@ class Body extends StatelessWidget {
                       topRight: Radius.circular(30)),
                 ),
                 child: Column(children: [
+                  const SizedBox(height: KDefaultPadding/2,),
                   colorAndSize(product: product),
+                  const SizedBox(height: KDefaultPadding/2,),
                   Description(product: product),
-                  Row(
-                    children: [
-                      Row(
-                        children: [
-                          SizedBox(
-                            height: 32,
-                            width: 40,
-                            child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                shape:const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(13))
-                                ) ,
-                              ),
-                              onPressed: () {}, 
-                              child: const Icon(Icons.remove),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  )
+                  const SizedBox(height: KDefaultPadding/2,),
+                  const CartCounter(),
+                  const SizedBox(height: KDefaultPadding/2,),
+                  addToCartAndBuyNow(product: product)
                 ]),
               ),
               productTitleWithImage(product: product),
